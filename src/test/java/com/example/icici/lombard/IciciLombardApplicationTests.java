@@ -2,9 +2,13 @@ package com.example.icici.lombard;
 
 import com.example.icici.lombard.controller.BookController;
 import com.example.icici.lombard.controller.TWProposalController;
+import com.example.icici.lombard.controller.TWQuoteController;
 import com.example.icici.lombard.dto.proposal.request.TwNBProposalAddons;
 import com.example.icici.lombard.dto.proposal.request.TwProposalRequest;
 import com.example.icici.lombard.dto.proposal.response.TwProposalResponse;
+import com.example.icici.lombard.dto.quote.request.TWQuoteRequest;
+import com.example.icici.lombard.dto.quote.response.TWQuoteResponse;
+import com.example.icici.lombard.service.Quote.TwQuoteService;
 import com.example.icici.lombard.service.proposal.TWProposalService;
 import com.example.icici.lombard.service.proposal.TwNBProposalAddonsService;
 import org.junit.jupiter.api.Test;
@@ -39,6 +43,39 @@ class IciciLombardApplicationTests {
 
     @Mock
     private HttpServletRequest httpServletRequest;
+    @InjectMocks
+    private TWQuoteController twQuoteController;
+
+    @Mock
+    private TwQuoteService twQuoteService;
+
+    @Test
+    public void testGetTWQuote() {
+
+        TWQuoteRequest mockRequest = new TWQuoteRequest();
+
+
+        when(twQuoteService.getTwQuote(any(TWQuoteRequest.class))).thenReturn(mockRequest);
+
+        ResponseEntity<TWQuoteRequest> response = twQuoteController.getTWQuote(mockRequest);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(mockRequest, response.getBody());
+    }
+
+    @Test
+    public void testInsuranceTwQuote() {
+
+        TWQuoteRequest mockRequest = new TWQuoteRequest();
+
+        TWQuoteResponse mockResponse = new TWQuoteResponse();
+        when(twQuoteService.insuranceTwQuote(any(TWQuoteRequest.class))).thenReturn(mockResponse);
+
+        ResponseEntity<TWQuoteResponse> response = twQuoteController.insuranceTwQuite(mockRequest);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(mockResponse, response.getBody());
+    }
 
     @Test
     public void testMapXmlToJson_Success() {
