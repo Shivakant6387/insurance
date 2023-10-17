@@ -1,5 +1,6 @@
 package com.example.icici.lombard;
 
+import com.example.icici.lombard.controller.BookController;
 import com.example.icici.lombard.controller.TWProposalController;
 import com.example.icici.lombard.dto.proposal.request.TwNBProposalAddons;
 import com.example.icici.lombard.dto.proposal.request.TwProposalRequest;
@@ -13,7 +14,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import javax.servlet.http.HttpServletRequest;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -30,6 +34,27 @@ class IciciLombardApplicationTests {
     private TWProposalService proposalService;
     @Mock
     private TwNBProposalAddonsService twNBProposalAddonsService;
+    @InjectMocks
+    private BookController bookController;
+
+    @Mock
+    private HttpServletRequest httpServletRequest;
+
+    @Test
+    public void testMapXmlToJson_Success() {
+        String inputXml = "<example><title>Sample Book</title><author>Jane Doe</author></example>";
+        ResponseEntity<String> response = bookController.mapXmlToJson(inputXml);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertTrue(response.getBody().contains("Processed JSON"));
+    }
+
+    @Test
+    public void testMapXmlToJson_Failure() {
+        String invalidXml = "<invalid-xml>";
+        ResponseEntity<String> response = bookController.mapXmlToJson(invalidXml);
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertTrue(response.getBody().contains("Error converting XML to JSON"));
+    }
 
     @Test
     public void testCalculateInsurance() throws Exception {
