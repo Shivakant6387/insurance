@@ -14,7 +14,7 @@ public class PreviousInsuranceDetails {
     private String IsVehicleOfPreviousPolicySold;
     private Boolean IsNCBApplicable;
     private Integer PrevYearInsurer;
-    private BigInteger PrevYearPolicyNo;
+    private String PrevYearPolicyNo;
     private Integer PrevYearInsurerAddress;
     private String DocumentProof;
     private Integer PrevYearPolicyType;

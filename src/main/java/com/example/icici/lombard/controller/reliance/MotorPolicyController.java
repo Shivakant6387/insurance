@@ -7,6 +7,7 @@ import com.example.icici.lombard.dto.reliance.request.premiumIp.PolicyDetails;
 import com.example.icici.lombard.service.reliance.CoverageListService;
 import com.example.icici.lombard.service.reliance.MotorPolicyServices;
 import com.example.icici.lombard.service.reliance.PolicyDetailesService;
+import com.example.icici.lombard.service.reliance.ProposalPolicyDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,8 @@ public class MotorPolicyController {
     private CoverageListService coverageListService;
     @Autowired
     private PolicyDetailesService policyDetailesService;
+    @Autowired
+    private ProposalPolicyDetailsService proposalPolicyDetailsService;
 
     @GetMapping(value = "/coverageList", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<CoverageList> getcoverageList(CoverageList coverageList) {
@@ -45,5 +48,9 @@ public class MotorPolicyController {
     @GetMapping(value = "/getMotorPolicy", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<MotorPolicy> getMotorPolicys() {
         return ResponseEntity.ok(motorPolicyServices.getMotorPolicys());
+    }
+    @GetMapping(value = "/getProposalPolicyDetails",produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<com.example.icici.lombard.dto.reliance.request.premiumIp.proposal.PolicyDetails> getAllPolicyDetails(com.example.icici.lombard.dto.reliance.request.premiumIp.proposal.PolicyDetails policyDetails){
+        return ResponseEntity.ok(proposalPolicyDetailsService.getProposalPolicyDetails(policyDetails));
     }
 }
