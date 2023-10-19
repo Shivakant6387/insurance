@@ -1,11 +1,11 @@
 package com.example.icici.lombard.service.reliance;
 
-import com.example.icici.lombard.dto.reliance.request.*;
-import com.example.icici.lombard.dto.reliance.request.Cover;
-import com.example.icici.lombard.dto.reliance.request.PreviousInsuranceDetails;
-import com.example.icici.lombard.dto.reliance.request.Risk;
-import com.example.icici.lombard.dto.reliance.request.Vehicle;
-import com.example.icici.lombard.dto.reliance.request.premiumIp.*;
+import com.example.icici.lombard.dto.reliance.request.gcv.*;
+import com.example.icici.lombard.dto.reliance.request.gcv.Cover;
+import com.example.icici.lombard.dto.reliance.request.gcv.PreviousInsuranceDetails;
+import com.example.icici.lombard.dto.reliance.request.gcv.Risk;
+import com.example.icici.lombard.dto.reliance.request.gcv.Vehicle;
+import com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

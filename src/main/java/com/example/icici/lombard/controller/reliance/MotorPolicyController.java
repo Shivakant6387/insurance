@@ -1,9 +1,9 @@
 package com.example.icici.lombard.controller.reliance;
 
-import com.example.icici.lombard.dto.reliance.request.CoverageList;
-import com.example.icici.lombard.dto.reliance.request.MotorPolicyRequest;
-import com.example.icici.lombard.dto.reliance.request.premiumIp.MotorPolicy;
-import com.example.icici.lombard.dto.reliance.request.premiumIp.PolicyDetails;
+import com.example.icici.lombard.dto.reliance.request.gcv.CoverageList;
+import com.example.icici.lombard.dto.reliance.request.gcv.MotorPolicyRequest;
+import com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.MotorPolicy;
+import com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.PolicyDetails;
 import com.example.icici.lombard.service.reliance.CoverageListService;
 import com.example.icici.lombard.service.reliance.MotorPolicyServices;
 import com.example.icici.lombard.service.reliance.PolicyDetailesService;
@@ -14,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/motorPolicy")
@@ -50,7 +48,7 @@ public class MotorPolicyController {
         return ResponseEntity.ok(motorPolicyServices.getMotorPolicys());
     }
     @GetMapping(value = "/getProposalPolicyDetails",produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<com.example.icici.lombard.dto.reliance.request.premiumIp.proposal.PolicyDetails> getAllPolicyDetails(com.example.icici.lombard.dto.reliance.request.premiumIp.proposal.PolicyDetails policyDetails){
+    public ResponseEntity<com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.proposal.PolicyDetails> getAllPolicyDetails(com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.proposal.PolicyDetails policyDetails){
         return ResponseEntity.ok(proposalPolicyDetailsService.getProposalPolicyDetails(policyDetails));
     }
 }

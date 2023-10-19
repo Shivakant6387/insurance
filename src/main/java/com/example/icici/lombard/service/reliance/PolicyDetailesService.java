@@ -1,8 +1,8 @@
 package com.example.icici.lombard.service.reliance;
 
-import com.example.icici.lombard.dto.reliance.request.ClientDetails;
-import com.example.icici.lombard.dto.reliance.request.Policy;
-import com.example.icici.lombard.dto.reliance.request.premiumIp.*;
+import com.example.icici.lombard.dto.reliance.request.gcv.ClientDetails;
+import com.example.icici.lombard.dto.reliance.request.gcv.Policy;
+import com.example.icici.lombard.dto.reliance.request.gcv.premiumIp.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

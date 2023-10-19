@@ -1,13 +1,12 @@
 package com.example.icici.lombard.service.reliance;
 
-import com.example.icici.lombard.dto.reliance.request.CoverDetail;
-import com.example.icici.lombard.dto.reliance.request.CoverageList;
-import com.example.icici.lombard.dto.reliance.request.ListValues;
-import com.example.icici.lombard.dto.reliance.request.Value;
+import com.example.icici.lombard.dto.reliance.request.gcv.CoverDetail;
+import com.example.icici.lombard.dto.reliance.request.gcv.CoverageList;
+import com.example.icici.lombard.dto.reliance.request.gcv.ListValues;
+import com.example.icici.lombard.dto.reliance.request.gcv.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
