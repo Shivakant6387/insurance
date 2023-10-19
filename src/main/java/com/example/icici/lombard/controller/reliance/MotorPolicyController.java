@@ -2,6 +2,7 @@ package com.example.icici.lombard.controller.reliance;
 
 import com.example.icici.lombard.dto.reliance.request.CoverageList;
 import com.example.icici.lombard.dto.reliance.request.MotorPolicyRequest;
+import com.example.icici.lombard.dto.reliance.request.premiumIp.MotorPolicy;
 import com.example.icici.lombard.dto.reliance.request.premiumIp.PolicyDetails;
 import com.example.icici.lombard.service.reliance.CoverageListService;
 import com.example.icici.lombard.service.reliance.MotorPolicyServices;
@@ -24,17 +25,25 @@ public class MotorPolicyController {
     private CoverageListService coverageListService;
     @Autowired
     private PolicyDetailesService policyDetailesService;
-    @GetMapping(value = "/coverageList" ,produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<CoverageList>getcoverageList(CoverageList coverageList){
+
+    @GetMapping(value = "/coverageList", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<CoverageList> getcoverageList(CoverageList coverageList) {
         return ResponseEntity.ok(coverageListService.getCoverageList(coverageList));
     }
-    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE )
-    public ResponseEntity<MotorPolicyRequest>getMotorPolicy(){
+
+    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<MotorPolicyRequest> getMotorPolicy() {
         System.out.println(motorPolicyServices.getMotorPolicy());
         return ResponseEntity.ok(motorPolicyServices.getMotorPolicy());
     }
-    @GetMapping(value = "/getPolicyDetails",produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<PolicyDetails>getPolicyDetails(PolicyDetails policyDetails){
+
+    @GetMapping(value = "/getPolicyDetails", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<PolicyDetails> getPolicyDetails(PolicyDetails policyDetails) {
         return ResponseEntity.ok(policyDetailesService.getPolicyDetails(policyDetails));
+    }
+
+    @GetMapping(value = "/getMotorPolicy", produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<MotorPolicy> getMotorPolicys() {
+        return ResponseEntity.ok(motorPolicyServices.getMotorPolicys());
     }
 }
