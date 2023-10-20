@@ -1,6 +1,7 @@
 package com.example.icici.lombard.controller.care;
 
 import com.example.icici.lombard.dto.care.request.IntPolicyDataIO;
+import com.example.icici.lombard.dto.care.request.Root;
 import com.example.icici.lombard.service.care.CareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ public class CareController {
     private CareService careService;
     @GetMapping("/getIntPolicyDataIO")
 
-    public ResponseEntity<IntPolicyDataIO> getCareService(IntPolicyDataIO intPolicyDataIO) {
+    public ResponseEntity<Root> getCareService(Root intPolicyDataIO) {
 
         return ResponseEntity.ok(careService.getIntPolicyDataIO(intPolicyDataIO));
     }
